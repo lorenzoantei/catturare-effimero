@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
+import starlightImageZoom from 'starlight-image-zoom'
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,7 +21,15 @@ export default defineConfig({
 						defer: true
 					},
 				},
+				{
+					tag: 'script',
+					attrs: {
+						src: '/custom-sidebar.js',
+						defer: true
+					},
+				},
 			],
+			plugins: [starlightImageZoom()],
 			sidebar: [
 				{
 					label: "Parte I - Estetica dell'effimero",

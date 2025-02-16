@@ -1,0 +1,32 @@
+<div class="border-t border-gray-700 pt-4">
+    <div class="mb-4">
+        <label for="spacing" class="text-sm font-medium">Spaziatura:</label>
+        <input type="range" id="spacing" min="0" value="20" class="w-full">
+        <span id="spacingValue" class="text-sm font-semibold">20px</span>
+    </div>
+
+    <div>
+        <label for="fontSize" class="text-sm font-medium">Dimensione testo:</label>
+        <input type="range" id="fontSize" min="12" max="48" value="18" class="w-full">
+        <span id="fontSizeValue" class="text-sm font-semibold">18px</span>
+    </div>
+</div>
+
+<script>
+    const spacingSlider = document.getElementById("spacing");
+    const spacingValueDisplay = document.getElementById("spacingValue");
+    const fontSizeSlider = document.getElementById("fontSize");
+    const fontSizeValueDisplay = document.getElementById("fontSizeValue");
+    const textContainer = document.getElementById("text-container");
+
+    spacingSlider.addEventListener("input", function () {
+        textContainer.style.paddingLeft = this.value + "px";
+        textContainer.style.paddingRight = this.value + "px";
+        spacingValueDisplay.textContent = this.value + "px";
+    });
+
+    fontSizeSlider.addEventListener("input", function () {
+        document.querySelectorAll("#text-container p").forEach(el => el.style.fontSize = this.value + "px");
+        fontSizeValueDisplay.textContent = this.value + "px";
+    });
+</script>

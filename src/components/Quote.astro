@@ -1,0 +1,20 @@
+---
+import Note from "./Note.astro";
+const { quote_content, quote_source, quote_author, note } = Astro.props;
+---
+
+<blockquote class="italic mx-12 p-4 rounded-lg shadow-lg relative border-l-4 border-gray-500
+    bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+    
+    <p class="text-lg" set:html={quote_content}></p>
+
+    {quote_source && (
+        <div class="mt-2 text-right text-sm font-bold text-gray-700 dark:text-gray-300">
+            - {quote_source}
+
+            {note.note_content && (
+                <Note note_content={note.note_content} />
+            )}
+        </div>
+    )}
+</blockquote>

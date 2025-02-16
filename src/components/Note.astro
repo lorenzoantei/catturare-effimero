@@ -1,0 +1,19 @@
+---
+export interface Props {
+  note_content: string;
+}
+
+const props = Astro.props;
+---
+
+<button class="relative cursor-pointer group focus:outline-none bg-transparent" data-note>
+    <sup class="mx-1 p-1 bg-black text-white text-[7pt] rounded-full duration-4 inline-flex items-center justify-center w-5 h-5 hover:bg-red-500 group-focus:bg-red-700 transition duration-300">
+        <span class="opacity-100"></span>
+    </sup>
+    <span
+        class="absolute top-1/2 -translate-y-1/2 md:w-max max-w-2xs md:max-w-xs p-4 text-white text-left text-sm rounded-lg shadow-lg 
+        opacity-0 transition-opacity duration-1000 group-hover:opacity-100 group-focus:opacity-100 bg-black z-[9999999999] tooltip-content"
+        set:html={props.note_content} 
+    >
+    </span>
+</button>

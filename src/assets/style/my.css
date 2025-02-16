@@ -1,0 +1,8 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* DISABLE OVERVIEW - ON THIS PAGE */
+a[href="#_top"] {
+    display: none !important;
+}
